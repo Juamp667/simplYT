@@ -22,7 +22,8 @@ function disableHome(){
     mini_guide = document.getElementsByTagName("ytd-mini-guide-renderer")[0] 
     guide = document.getElementById("guide")
     shorts = document.getElementById("contents-container").children[0]
-    const v = [pg_manager,mini_guide,guide, shorts]
+
+    const v = [pg_manager, mini_guide, guide, shorts]
     for (let i=0; i<v.length;i++){
         v[i]? v[i].style.visibility = "hidden":console.log("v[i] does not exist")
     }
@@ -55,33 +56,34 @@ function disableHome(){
 
 
 function enableHome(){
-    pg_manager = document.getElementById("page-manager")
-    mini_guide = document.getElementsByTagName("mini_guide")[0] 
-    guide = document.getElementById("guide")
-    shorts = document.getElementById("contents-container").children[0]
-    const v = [pg_manager,mini_guide,guide, shorts]
-    for (let i=0; i<v.length;i++){
-        v[i].style.visibility = "visible"
-    }
+  pg_manager = document.getElementById("page-manager")
+  mini_guide = document.getElementsByTagName("ytd-mini-guide-renderer")[0] 
+  guide = document.getElementById("guide")
+  shorts = document.getElementById("contents-container").children[0]
+  const v = [pg_manager, mini_guide, guide, shorts]
+  for (let i=0; i<v.length;i++){
+      v[i]? v[i].style.visibility = "visible":console.log("v[i] does not exist")
+  }
 
 
-    container = document.getElementById("container")
-    container_child = container.children 
-    for (let i=0; i<container_child.length; i++){
-        container_child[i].style.minWidth = "0"
-        container_child[i].style.maxHeight = ""
-    }
-    container.style.cssText = "height:56px;display:flex; justify-content: space-between;gap: 0;"
+  container = document.getElementById("container")
+  container_child = container.children 
+  for (let i=0; i<container_child.length; i++){
+      container_child[i].style.minWidth = "0"
+      container_child[i].style.maxHeight = ""
+  }
+  container.style.cssText = "height:56px;display:flex; justify-content: space-between;gap: 0;"
 
-    logo_icon = document.getElementById("logo-icon")
-    logo_icon.style.cssText = "height: 20px; width: 93px;"
-    start.style.cssText = "height: auto; width: auto;"
+  logo_icon = document.getElementById("logo-icon")
+  logo_icon.style.cssText = "height: 20px; width: 93px;"
+  start.style.cssText = "height: auto; width: auto;"
 
 
-    center = document.getElementById("center")
-    center.style.cssText = "max-height:100px; min-width:50vw" 
+  center = document.getElementById("center")
+  center.style.cssText = "max-height:100px; min-width:50vw" 
 
-    search_box.style.margin = "40" 
+  search_box.style.margin = "40" 
 
-    document.getElementsByClassName("ytSearchboxComponentSuggestionsContainerScrollable")[0].style.maxHeight = "80vh" 
+  document.getElementsByClassName("ytSearchboxComponentSuggestionsContainerScrollable")[0].style.maxHeight = "80vh" 
 }
+

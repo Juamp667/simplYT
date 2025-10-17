@@ -4,17 +4,15 @@
   "version": "1.0",
   "description": "Add the reading time to Chrome Extension documentation articles",
   "permissions": ["scripting", "tabs"],
-  "host_permissions": ["https://example.com/*"],
   "action": {
     "default_popup": "hello.html"
   },
   "content_scripts": [
     {
-      "js": ["content.js"],
+      "js": ["switch1.js", "switch2.js"],
       "matches": [
         "https://www.youtube.com/*"
       ]
     }
   ]
-
 }
