@@ -1,8 +1,8 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 0.1,
   "name": "Reading time",
-  "version": "1.0",
-  "description": "Add the reading time to Chrome Extension documentation articles",
+  "version": "0.1.0",
+  "description": "Designed to simplify and personalize yout youtube feed. Specially desgined for those concerned withAdd the reading time to Chrome Extension documentation articles using it conciously.",
   "permissions": [
     "scripting",
     "tabs",
