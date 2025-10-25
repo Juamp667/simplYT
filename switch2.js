@@ -32,7 +32,7 @@ switch2.addEventListener('change',()=>{
             for (let i=0; i<v.length;i++){
               if (v[i]){
                 v[i].style.visibility = "visible"
-                v[i].style.position = "static"
+                v[i].style.position = ""
               }
             }
 

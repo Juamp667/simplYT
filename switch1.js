@@ -15,40 +15,43 @@ switch1.addEventListener('change',()=>{
         func: (checked) => {
           function disableHome(){
             console.log("Disabling home.")
-              pg_manager = document.getElementById("page-manager")
-              mini_guide = document.getElementsByTagName("ytd-mini-guide-renderer")[0] 
-              guide = document.getElementById("guide")
-              shorts = document.getElementById("contents-container").children[0]
+            pg_manager = document.getElementById("page-manager")
+            mini_guide = document.getElementsByTagName("ytd-mini-guide-renderer")[0] 
+            guide = document.getElementById("guide")
+            shorts = document.getElementById("contents-container").children[0]
 
-              const v = [pg_manager, mini_guide, guide, shorts]
-              for (let i=0; i<v.length;i++){
-                  v[i]? v[i].style.visibility = "hidden":console.log("v[i] does not exist")
+            const v = [pg_manager, mini_guide, guide, shorts]
+            for (let i=0; i<v.length;i++){
+              if (v[i]){
+                v[i].style.visibility = "hidden"
+                v[i].style.position = "absolute"
               }
+            }
 
 
-              container = document.getElementById("container")
-              container_child = container.children 
-              for (let i=0; i<container_child.length; i++){
-                  container_child[i].style.minWidth = "fit-content"
-                  container_child[i].style.maxHeight = "min-content"
-              }
-              container.style.cssText = "height:85vh;display:flex; flex-direction:column;justify-content: center;gap: 25px;"
+            container = document.getElementById("container")
+            container_child = container.children 
+            for (let i=0; i<container_child.length; i++){
+                container_child[i].style.minWidth = "fit-content"
+                container_child[i].style.maxHeight = "min-content"
+            }
+            container.style.cssText = "height:85vh;display:flex; flex-direction:column;justify-content: center;gap: 25px;"
 
 
-              start = document.getElementById("start")
-              start.style.cssText = "height: auto; width: 20vw;"
-              logo_icon = document.getElementById("logo-icon")
-              logo_icon.style.cssText = "height: auto; width: 20vw;"
-              start.style.cssText = "height: auto; width: 20vw;"
+            start = document.getElementById("start")
+            start.style.cssText = "height: auto; width: 20vw;"
+            logo_icon = document.getElementById("logo-icon")
+            logo_icon.style.cssText = "height: auto; width: 20vw;"
 
 
-              center = document.getElementById("center")
-              center.style.cssText = "max-height:100px; min-width:50vw" 
 
-              search_box = document.getElementsByTagName("yt-searchbox")[0]
-              search_box.style.margin = "0" 
+            center = document.getElementById("center")
+            center.style.cssText = "max-height:100px; min-width:50vw" 
 
-              document.getElementsByClassName("ytSearchboxComponentSuggestionsContainerScrollable")[0].style.maxHeight = "30vh" 
+            search_box = document.getElementsByTagName("yt-searchbox")[0]
+            search_box.style.margin = "0" 
+
+            document.getElementsByClassName("ytSearchboxComponentSuggestionsContainerScrollable")[0].style.maxHeight = "30vh" 
           }
 
 
@@ -61,27 +64,32 @@ switch1.addEventListener('change',()=>{
             
             const v = [pg_manager, mini_guide, guide, shorts]
             for (let i=0; i<v.length;i++){
-                v[i]? v[i].style.visibility = "visible":console.log("v[i] does not exist")
+              if (v[i]){
+                v[i].style.visibility = "visible"
+                v[i].style.position = v[i].id=="guide" ?  "static":""
+              }
             }
 
 
             container = document.getElementById("container")
             container_child = container.children 
             for (let i=0; i<container_child.length; i++){
-                container_child[i].style.minWidth = "0"
+                container_child[i].style.minWidth = ""
                 container_child[i].style.maxHeight = ""
             }
-            container.style.cssText = "height:56px;display:flex; justify-content: space-between;gap: 0;"
+            container.style.cssText = "height:'';display:''; justify-content: '';gap: '';"
+
+            start = document.getElementById("start")
+            start.style.cssText = "height: ''; width: '';"
 
             logo_icon = document.getElementById("logo-icon")
-            logo_icon.style.cssText = "height: 20px; width: 93px;"
-            start.style.cssText = "height: auto; width: auto;"
+            logo_icon.style.cssText = "height: ''; width: '';"
 
 
             center = document.getElementById("center")
-            center.style.cssText = "max-height:100px; min-width:50vw" 
+            center.style.cssText = "max-height:''; min-width:''" 
 
-            search_box.style.margin = "40" 
+            search_box.style.margin = "" 
 
             document.getElementsByClassName("ytSearchboxComponentSuggestionsContainerScrollable")[0].style.maxHeight = "80vh" 
           }
