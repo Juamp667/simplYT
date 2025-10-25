@@ -2,7 +2,8 @@
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
+  justify-self: center;
+  min-width: 60px;
   height: 34px;
 }
 
@@ -70,4 +71,9 @@ input:checked + .slider:before {
   display: flex;
   align-items: center;
   gap: 25px;
+  min-width: fit-content;
+  p{
+    min-width: 120px;
+  }
+  
 }
