@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "SimplYT",
   "version": "0.1.0",
-  "description": "Designed to simplify and personalize yout youtube feed. Specially desgined for those concerned withAdd the reading time to Chrome Extension documentation articles using it conciously.",
+  "description": "Designed to simplify and personalize your youtube feed. Specially desgined for those concerned with using it conciously.",
   "permissions": [
     "scripting",
     "tabs",
