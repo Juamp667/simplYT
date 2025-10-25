@@ -4,9 +4,7 @@ try{
 }catch{
   console.log(s1)
 }
-chrome.storage.local.get(["s1"], function(result) {
-    s1 = result.s1
-});
+
 
 
 function disableHome(){
@@ -54,10 +52,10 @@ function disableHome(){
 
 function enableHome(){
   console.log("Enabling home.")
-  pg_manager = document.getElementById("page-manager")
-  mini_guide = document.getElementsByTagName("ytd-mini-guide-renderer")[0] 
-  guide = document.getElementById("guide")
-  shorts = document.getElementById("contents-container").children[0]
+  // pg_manager = document.getElementById("page-manager")
+  // mini_guide = document.getElementsByTagName("ytd-mini-guide-renderer")[0] 
+  // guide = document.getElementById("guide")
+  // shorts = document.getElementById("contents-container").children[0]
   
   const v = [pg_manager, mini_guide, guide, shorts]
   for (let i=0; i<v.length;i++){
@@ -68,7 +66,7 @@ function enableHome(){
   }
 
 
-  container = document.getElementById("container")
+  // container = document.getElementById("container")
   container_child = container.children 
   for (let i=0; i<container_child.length; i++){
       container_child[i].style.minWidth = ""
@@ -76,20 +74,20 @@ function enableHome(){
   }
   container.style.cssText = "height:'';display:''; justify-content: '';gap: '';"
 
-  start = document.getElementById("start")
+  // start = document.getElementById("start")
   start.style.cssText = "height: ''; width: '';"
 
-  logo_icon = document.getElementById("logo-icon")
+  // logo_icon = document.getElementById("logo-icon")
   logo_icon.style.cssText = "height: ''; width: '';"
 
 
-  center = document.getElementById("center")
+  // center = document.getElementById("center")
   center.style.cssText = "max-height:''; min-width:''" 
   
-  search_box = document.getElementsByTagName("yt-searchbox")[0]
+  // search_box = document.getElementsByTagName("yt-searchbox")[0]
   search_box.style.margin = "" 
 
-  document.getElementsByClassName("ytSearchboxComponentSuggestionsContainerScrollable")[0].style.maxHeight = "80vh" 
+  a.style.maxHeight = "80vh" 
 }
 
 
@@ -130,8 +128,9 @@ try{
   chrome.storage.local.get(["s1"], function(result) {
       try{switch1.checked = result.s1;}catch{}
       console.log(result.s1)
-});} 
-catch{
+  });
+
+}catch{
   setTimeout(
     ()=>{
 
@@ -147,7 +146,11 @@ catch{
       search_box = document.getElementsByTagName("yt-searchbox")[0]
       a = document.getElementsByClassName("ytSearchboxComponentSuggestionsContainerScrollable")[0]
 
-      s1 ? disableHome() : enableHome()
-    }, 1000
+    chrome.storage.local.get(["s1"], function(result) {
+        result.s1 ? disableHome() : enableHome()
+    });
+
+      
+    }, 2000
   )
 }
