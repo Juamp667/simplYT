@@ -1,21 +1,25 @@
 chrome.tabs.onUpdated.addListener(
     (tabId, changeInfo, tabInfo)=>{
-        if (changeInfo.status=="complete"){
-            chrome.tabs.query({ url: "https://www.youtube.com/", status:"complete"},  (tabs) => {
-                chrome.scripting.executeScript({
-                    target: { tabId: tabs[0].id },
-                    files: ["switch1.js"],
-                    injectImmediately:false
-                })
-            })
 
-            chrome.tabs.query({ url: "https://www.youtube.com/watch*", status:"complete" }, (tabs) => { 
+        if (changeInfo.status=="complete"){
+
+            console.log("\n New tab added. Let's display its info:")
+            console.log(tabInfo)
+
+            if (tabInfo.url=="https://www.youtube.com/"){
+                console.log("Running home script.")
                 chrome.scripting.executeScript({
-                    target: { tabId: tabs[0].id },
-                    files: ["switch2.js"],
-                    injectImmediately:false
+                    target: { tabId: tabId },
+                    files: ["switch1.js"]
                 })
-            })
+            }else if (tabInfo.url.substring(0,29)=="https://www.youtube.com/watch"){
+                console.log("Running watch script.")
+                chrome.scripting.executeScript({
+                    target: { tabId: tabId },
+                    files: ["switch2.js"]
+                })
+            }
+
         }
     }
 );

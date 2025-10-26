@@ -1,28 +1,22 @@
 
 try{let s2}catch{}
-console.log("Script 2 prepared to modify video feed.")
 
 function disableWatch(){
   console.log("Disabling video feed.")
-  if (secondary){
-    secondary.style.visibility = "hidden"
-    secondary.style.position = "absolute"
-  }
-  if (primary){
-    minPrimWitdth = primary.style.minWidth
-    primary.style.minWidth = "80vw" 
-  }
-
+  secondary.style.visibility = "hidden"
+  secondary.style.position = "absolute"
+  minPrimWitdth = primary.style.minWidth
+  primary.style.minWidth = "80vw" 
+  video_cont.minWidth = "80vw"
 }
 
 function enableWatch(){
   console.log("Enabling video feed.")
 
-  if (secondary){
-    secondary.style.visibility = "visible"
-    secondary.style.position = ""
-  }
-  primary? (primary.style.minWidth = ""):""
+  secondary.style.visibility = "visible"
+  secondary.style.position = ""
+  primary.style.minWidth = ""
+  video_cont.minWidth = ""
 
 }
 
@@ -59,10 +53,16 @@ try{
   );
   
 }catch{
-  secondary = document.getElementById("secondary")
-  primary = document.getElementById("primary")
-  chrome.storage.local.get("s2", function(result) {
-    result.s2 ? disableWatch() : enableWatch()
-  });
+  setTimeout(
+    ()=>{
+      secondary = document.querySelector(".style-scope.ytd-watch-flexy#secondary")
+      video_cont = document.querySelector(".ytp-iv-video-content")
+      primary = document.querySelector(".style-scope.ytd-watch-flexy#primary")
+      chrome.storage.local.get("s2", function(result) {
+        result.s2 ? disableWatch() : enableWatch()
+      });
+    },
+    1000)
+  console.log("Script 2 prepared to modify video feed.")
 }
 

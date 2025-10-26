@@ -1,6 +1,5 @@
 
 try{let s1}catch{}
-console.log("Script 1 prepared to modify home feed.")
 
 
 function disableHome(){
@@ -107,7 +106,7 @@ try{
     ["s1"], 
     function(result) {switch1.checked = result.s1});
 }catch{
-  
+  console.log("Script 1 prepared to modify home feed.")
   ///////////////////////
   //Catch home elements//
   ///////////////////////
