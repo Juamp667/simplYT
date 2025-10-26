@@ -53,16 +53,12 @@ try{
   );
   
 }catch{
-  setTimeout(
-    ()=>{
-      secondary = document.querySelector(".style-scope.ytd-watch-flexy#secondary")
-      video_cont = document.querySelector(".ytp-iv-video-content")
-      primary = document.querySelector(".style-scope.ytd-watch-flexy#primary")
-      chrome.storage.local.get("s2", function(result) {
-        result.s2 ? disableWatch() : enableWatch()
-      });
-    },
-    1000)
+    secondary = document.querySelector(".style-scope.ytd-watch-flexy#secondary")
+    video_cont = document.querySelector(".ytp-iv-video-content")
+    primary = document.querySelector(".style-scope.ytd-watch-flexy#primary")
+    chrome.storage.local.get("s2", function(result) {
+      result.s2 ? disableWatch() : enableWatch()
+    });
   console.log("Script 2 prepared to modify video feed.")
 }
 
