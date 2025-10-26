@@ -3,7 +3,7 @@ try{let s2}catch{}
 console.log("Script 2 prepared to modify video feed.")
 
 function disableWatch(){
-
+  console.log("Disabling video feed.")
   if (secondary){
     secondary.style.visibility = "hidden"
     secondary.style.position = "absolute"
@@ -16,6 +16,7 @@ function disableWatch(){
 }
 
 function enableWatch(){
+  console.log("Enabling video feed.")
 
   if (secondary){
     secondary.style.visibility = "visible"
@@ -60,8 +61,8 @@ try{
 }catch{
   secondary = document.getElementById("secondary")
   primary = document.getElementById("primary")
-  chrome.storage.local.get(["s2"], function(result) {
-      result.s2 ? disableWatch() : enableWatch()
+  chrome.storage.local.get("s2", function(result) {
+    result.s2 ? disableWatch() : enableWatch()
   });
 }
 

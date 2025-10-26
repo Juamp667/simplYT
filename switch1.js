@@ -106,7 +106,6 @@ try{
   chrome.storage.local.get(
     ["s1"], 
     function(result) {switch1.checked = result.s1});
-
 }catch{
   
   ///////////////////////
@@ -126,7 +125,8 @@ try{
   search_box = document.getElementsByTagName("yt-searchbox")[0]
   a = document.getElementsByClassName("ytSearchboxComponentSuggestionsContainerScrollable")[0]
 
+
   chrome.storage.local.get(["s1"], function(result) {
-      result.s1 ? disableHome() : enableHome()
+    result.s1 ? disableHome() : enableHome()
   });
 }

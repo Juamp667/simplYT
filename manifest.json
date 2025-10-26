@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "SimplYT",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Designed to simplify and personalize your youtube feed. Specially desgined for those concerned with using it conciously.",
   "permissions": [
     "scripting",
@@ -16,8 +16,7 @@
         "https://www.youtube.com/*"
     ],
   "background": {
-    "service_worker": "background.js",
-    "scripts": ["background.js"]
+    "service_worker": "background.js"
   },
   "icons": {
     "16": "icon.png",
