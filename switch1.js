@@ -106,26 +106,29 @@ try{
     ["s1"], 
     function(result) {switch1.checked = result.s1});
 }catch{
+  setTimeout(()=>{
+    ///////////////////////
+    //Catch home elements//
+    ///////////////////////
+    pg_manager = document.getElementById("page-manager")
+
+    //The following elements aren't always in the web
+    try{mini_guide = document.getElementsByTagName("ytd-mini-guide-renderer")[0] }catch{mini_guide=false}
+    try{guide = document.getElementById("guide")}catch{guide=false}
+    try{shorts = document.getElementById("contents-container").children[0]}catch{shorts=false}
+
+    container = document.getElementById("container")
+    start = document.getElementById("start")
+    logo_icon = document.getElementById("logo-icon")
+    center = document.getElementById("center")
+    search_box = document.getElementsByTagName("yt-searchbox")[0]
+    a = document.getElementsByClassName("ytSearchboxComponentSuggestionsContainerScrollable")[0]
+
+
+    chrome.storage.local.get(["s1"], function(result) {
+      result.s1 ? disableHome() : enableHome()
+    });},
+    1000
+  )
   console.log("Script 1 prepared to modify home feed.")
-  ///////////////////////
-  //Catch home elements//
-  ///////////////////////
-  pg_manager = document.getElementById("page-manager")
-
-  //The following elements aren't always in the web
-  try{mini_guide = document.getElementsByTagName("ytd-mini-guide-renderer")[0] }catch{mini_guide=false}
-  try{guide = document.getElementById("guide")}catch{guide=false}
-  try{shorts = document.getElementById("contents-container").children[0]}catch{shorts=false}
-
-  container = document.getElementById("container")
-  start = document.getElementById("start")
-  logo_icon = document.getElementById("logo-icon")
-  center = document.getElementById("center")
-  search_box = document.getElementsByTagName("yt-searchbox")[0]
-  a = document.getElementsByClassName("ytSearchboxComponentSuggestionsContainerScrollable")[0]
-
-
-  chrome.storage.local.get(["s1"], function(result) {
-    result.s1 ? disableHome() : enableHome()
-  });
 }
