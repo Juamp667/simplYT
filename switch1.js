@@ -84,7 +84,7 @@ function handleSwitch1(){
 
 
       chrome.storage.local.set({s1: checked}).then(() => {
-        console.log("Switch1 is set to "+checked);
+        console.log("s1->"+checked);
       });
 
 
@@ -103,9 +103,9 @@ try{
       handleSwitch1()
     })
 
-  chrome.storage.local.get(["s1"], function(result) {
-      switch1.checked = result.s1
-  });
+  chrome.storage.local.get(
+    ["s1"], 
+    function(result) {switch1.checked = result.s1});
 
 }catch{
   
