@@ -16,5 +16,5 @@ Experimental chrome extension designed to **simplify and personalize your youtub
 <br>
 
 ##
-I'll continue working aiming for a higher level of personalization, being able to disable shorts, for example
+I'll continue working towards for a higher level of personalization, being able to disable shorts, for example.
 

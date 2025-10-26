@@ -1,20 +1,12 @@
 
-try{
-  let s1
-}catch{
-  console.log(s1)
-}
-
+try{let s1}catch{}
+console.log("Script 1 prepared to modify home feed.")
 
 
 function disableHome(){
-  console.log("Disabling home.")
-  // pg_manager = document.getElementById("page-manager")
-  // mini_guide = document.getElementsByTagName("ytd-mini-guide-renderer")[0] 
-  // guide = document.getElementById("guide")
-  // shorts = document.getElementById("contents-container").children[0]
-
-  const v = [pg_manager, mini_guide, guide, shorts]
+  console.log("Disabling home.") 
+  
+  let v = [pg_manager, mini_guide, guide, shorts]
   for (let i=0; i<v.length;i++){
     if (v[i]){
       v[i].style.visibility = "hidden"
@@ -23,7 +15,6 @@ function disableHome(){
   }
 
 
-  // container = document.getElementById("container")
   container_child = container.children 
   for (let i=0; i<container_child.length; i++){
       container_child[i].style.minWidth = "fit-content"
@@ -32,30 +23,22 @@ function disableHome(){
   container.style.cssText = "height:85vh;display:flex; flex-direction:column;justify-content: center;gap: 25px;"
 
 
-  // start = document.getElementById("start")
   start.style.cssText = "height: auto; width: 20vw;"
-  // logo_icon = document.getElementById("logo-icon")
   logo_icon.style.cssText = "height: auto; width: 20vw;"
 
 
 
-  // center = document.getElementById("center")
   center.style.cssText = "max-height:100px; min-width:50vw" 
 
-  // search_box = document.getElementsByTagName("yt-searchbox")[0]
   search_box.style.margin = "0" 
 
-  // a = document.getElementsByClassName("ytSearchboxComponentSuggestionsContainerScrollable")[0]
   a.style.maxHeight = "30vh" 
 }
 
 
 function enableHome(){
   console.log("Enabling home.")
-  // pg_manager = document.getElementById("page-manager")
-  // mini_guide = document.getElementsByTagName("ytd-mini-guide-renderer")[0] 
-  // guide = document.getElementById("guide")
-  // shorts = document.getElementById("contents-container").children[0]
+
   
   const v = [pg_manager, mini_guide, guide, shorts]
   for (let i=0; i<v.length;i++){
@@ -66,7 +49,6 @@ function enableHome(){
   }
 
 
-  // container = document.getElementById("container")
   container_child = container.children 
   for (let i=0; i<container_child.length; i++){
       container_child[i].style.minWidth = ""
@@ -74,17 +56,13 @@ function enableHome(){
   }
   container.style.cssText = "height:'';display:''; justify-content: '';gap: '';"
 
-  // start = document.getElementById("start")
   start.style.cssText = "height: ''; width: '';"
 
-  // logo_icon = document.getElementById("logo-icon")
   logo_icon.style.cssText = "height: ''; width: '';"
 
 
-  // center = document.getElementById("center")
   center.style.cssText = "max-height:''; min-width:''" 
   
-  // search_box = document.getElementsByTagName("yt-searchbox")[0]
   search_box.style.margin = "" 
 
   a.style.maxHeight = "80vh" 
@@ -126,31 +104,29 @@ try{
     })
 
   chrome.storage.local.get(["s1"], function(result) {
-      try{switch1.checked = result.s1;}catch{}
-      console.log(result.s1)
+      switch1.checked = result.s1
   });
 
 }catch{
-  setTimeout(
-    ()=>{
+  
+  ///////////////////////
+  //Catch home elements//
+  ///////////////////////
+  pg_manager = document.getElementById("page-manager")
 
-      //Elementos home
-      pg_manager = document.getElementById("page-manager")
-      mini_guide = document.getElementsByTagName("ytd-mini-guide-renderer")[0] 
-      guide = document.getElementById("guide")
-      shorts = document.getElementById("contents-container").children[0]
-      container = document.getElementById("container")
-      start = document.getElementById("start")
-      logo_icon = document.getElementById("logo-icon")
-      center = document.getElementById("center")
-      search_box = document.getElementsByTagName("yt-searchbox")[0]
-      a = document.getElementsByClassName("ytSearchboxComponentSuggestionsContainerScrollable")[0]
+  //The following elements aren't always in the web
+  try{mini_guide = document.getElementsByTagName("ytd-mini-guide-renderer")[0] }catch{mini_guide=false}
+  try{guide = document.getElementById("guide")}catch{guide=false}
+  try{shorts = document.getElementById("contents-container").children[0]}catch{shorts=false}
 
-    chrome.storage.local.get(["s1"], function(result) {
-        result.s1 ? disableHome() : enableHome()
-    });
+  container = document.getElementById("container")
+  start = document.getElementById("start")
+  logo_icon = document.getElementById("logo-icon")
+  center = document.getElementById("center")
+  search_box = document.getElementsByTagName("yt-searchbox")[0]
+  a = document.getElementsByClassName("ytSearchboxComponentSuggestionsContainerScrollable")[0]
 
-      
-    }, 2000
-  )
+  chrome.storage.local.get(["s1"], function(result) {
+      result.s1 ? disableHome() : enableHome()
+  });
 }

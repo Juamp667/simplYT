@@ -1,10 +1,6 @@
 
-try{
-  let s2
-  console.log("s2 creada")
-}catch{
-  console.log("Switch2 checked?" + s2)
-}
+try{let s2}catch{}
+console.log("Script 2 prepared to modify video feed.")
 
 
 

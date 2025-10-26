@@ -12,17 +12,9 @@
   "action": {
     "default_popup": "hello.html"
   },
- "host_permissions": [
+  "host_permissions": [
         "https://www.youtube.com/*"
     ],
-  "content_scripts": [
-    {
-      "js": ["switch1.js", "switch2.js"],
-      "matches": [
-        "https://www.youtube.com/*"
-      ]
-    }
-  ],
   "background": {
     "service_worker": "background.js"
   }
