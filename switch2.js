@@ -46,7 +46,6 @@ function handleSwitch2(){
   });
 }
 
-
 try{
   switch2 = document.getElementById("switchRightFeed")
   switch2.addEventListener('change',()=>{
