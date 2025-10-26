@@ -1,4 +1,4 @@
-# simplYT 0.1.3
+# <img src="icon.png" width="64px"> simplYT 0.1.3
 Experimental chrome extension designed to **simplify and personalize your youtube feed**. Specially desgined for those concerned with using it conciously.
 <br>
 <img src="./imgs/ext.png">
